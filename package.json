@@ -2,10 +2,7 @@
   "name": "ip-set",
   "description": "Efficient mutable set for IP addresses",
   "version": "1.0.0",
-  "author": {
-    "name": "Travis Fischer",
-    "email": "fisch0920@gmail.com"
-  },
+  "author": "Travis Fischer <fisch0920@gmail.com>",
   "dependencies": {
     "ip": "^0.3.0"
   },
@@ -43,5 +40,8 @@
       "safari/6..latest",
       "opera/15.0..latest"
     ]
+  },
+  "directories": {
+    "test": "test"
   }
 }
