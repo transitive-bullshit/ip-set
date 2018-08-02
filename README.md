@@ -1,8 +1,8 @@
-# ip-set [![travis](https://img.shields.io/travis/fisch0920/ip-set.svg)](https://travis-ci.org/fisch0920/ip-set) [![npm](https://img.shields.io/npm/v/ip-set.svg)](https://npmjs.org/package/ip-set)
+# ip-set [![travis](https://img.shields.io/travis/transitive-bullshit/ip-set.svg)](https://travis-ci.org/transitive-bullshit/ip-set) [![npm](https://img.shields.io/npm/v/ip-set.svg)](https://npmjs.org/package/ip-set)
 
 ### IP Address Set
 
-[![browser support](https://ci.testling.com/fisch0920/ip-set.png)](https://ci.testling.com/fisch0920/ip-set)
+[![browser support](https://ci.testling.com/transitive-bullshit/ip-set.png)](https://ci.testling.com/transitive-bullshit/ip-set)
 
 Efficient mutable set data structure optimized for use with IPv4 and IPv6 addresses. The primary use case is for working with potentially large IP blacklists.
 
@@ -33,7 +33,7 @@ var isBlocked = ipSet.contains(exampleBlockedIP2) // isBlocked will be true
 
 ## credits
 
-Original interval-tree written by [galedric](https://github.com/galedric) for [torrent-stream](https://github.com/mafintosh/torrent-stream). Ported to an isolated npm module by [fisch0920](https://github.com/fisch0920) for [webtorrent](http://webtorrent.io).
+Original interval-tree written by [galedric](https://github.com/galedric) for [torrent-stream](https://github.com/mafintosh/torrent-stream). Ported to an isolated npm module by [transitive-bullshit](https://github.com/transitive-bullshit) for [webtorrent](http://webtorrent.io).
 
 ## license
 
