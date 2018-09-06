@@ -25,6 +25,20 @@ test('ipSet.contains respects ipSet.add with a start and an end', function(t) {
   t.end()
 });
 
+test('ipSet.contains respects ipSet.add with a cidr', function(t) {
+  const set = ipSet();
+  const cidrIp = '192.168.1.0/24';
+  
+  set.add(cidrIp);
+  t.ok(set.contains('192.168.1.0'))
+  t.ok(set.contains('192.168.1.5'))
+  t.ok(set.contains('192.168.1.255'))
+  t.ok(set.contains('192.168.1.123'))
+  t.notOk(set.contains('192.168.2.0'))
+
+  t.end()
+});
+
 test('IPv6', function(t) {
   const set = ipSet();
   const ip = '0:0:0:0:0:ffff:7f00:1' // 127.0.0.1

@@ -122,8 +122,14 @@ module.exports = function (blocklist) {
       start = start.start
     }
 
+    var cidrStr = /\/\d{1,2}/;
+    if (typeof start === 'string' && cidrStr.test(start)) {
+      var ipSubnet = ip.cidrSubnet(start);
+      start = ipSubnet.networkAddress;
+      end = ipSubnet.broadcastAddress;
+    }
     if (typeof start !== 'number') start = ip.toLong(start)
-
+    
     if (!end) end = start
     if (typeof end !== 'number') end = ip.toLong(end)
 
