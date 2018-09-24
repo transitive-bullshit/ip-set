@@ -23,11 +23,21 @@ ipSet.add(exampleBlockedIP2)
 var isBlocked = ipSet.contains(exampleBlockedIP2) // isBlocked will be true
 ```
 
+CIDR ip's are also supported
+
+```js
+ipSet.add(`192.168.1.0/24`);
+var isBlockedInList= ipSet.contains('192.168.1.0');// isBlockedInList will be true
+isBlockedInList= ipSet.contains('192.168.1.255');// isBlockedInList will be true
+```
+  
+
 ## todo
 (prioritized highest to lowest)
 
 - [x] Port IPv4 implementation from `torrent-stream`
 - [x] Add basic tests
+- [x] Support CIDR notation
 - [ ] Support IPv6
 - [ ] Investigate potential use of [node-iptrie](https://github.com/postwait/node-iptrie)
 
