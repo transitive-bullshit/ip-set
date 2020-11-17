@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "author": "Travis Fischer <fisch0920@gmail.com>",
   "dependencies": {
-    "ip": "^1.1.3"
+    "ip": "^1.1.5"
   },
   "devDependencies": {
     "tape": "^5.0.1"
