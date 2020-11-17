@@ -1,7 +1,6 @@
-
 const ip = require('ip')
 
-class IPSet {
+class IPSetNode {
   constructor (start, end) {
     this.start = start
     this.end = end
@@ -23,7 +22,7 @@ class IPSet {
         update = this.left.add(start, end)
         if (update) this._balance()
       } else {
-        this.left = new IPSet(start, end)
+        this.left = new IPSetNode(start, end)
         update = true
       }
     } else if (d > 0) {
@@ -31,7 +30,7 @@ class IPSet {
         update = this.right.add(start, end)
         if (update) this._balance()
       } else {
-        this.right = new IPSet(start, end)
+        this.right = new IPSetNode(start, end)
         update = true
       }
     }
@@ -113,11 +112,17 @@ class IPSet {
   }
 }
 
-module.exports = blocklist => {
-  let tree = null
-  const self = {}
+class IPSet {
+  constructor (blocklist) {
+    this.tree = null
+    if (Array.isArray(blocklist)) {
+      blocklist.forEach(block => {
+        this.add(block)
+      })
+    }
+  }
 
-  self.add = (start, end) => {
+  add (start, end) {
     if (!start) return
     if (typeof start === 'object') {
       end = start.end
@@ -137,21 +142,15 @@ module.exports = blocklist => {
 
     if (start < 0 || end > 4294967295 || end < start) throw new Error('Invalid block range')
 
-    if (tree) tree.add(start, end)
-    else tree = new IPSet(start, end)
+    if (this.tree) this.tree.add(start, end)
+    else this.tree = new IPSetNode(start, end)
   }
 
-  self.contains = addr => {
-    if (!tree) return false
+  contains (addr) {
+    if (!this.tree) return false
     if (typeof addr !== 'number') addr = ip.toLong(addr)
-    return tree.contains(addr)
+    return this.tree.contains(addr)
   }
-
-  if (Array.isArray(blocklist)) {
-    blocklist.forEach(block => {
-      self.add(block)
-    })
-  }
-
-  return self
 }
+
+module.exports = IPSet

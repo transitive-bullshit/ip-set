@@ -1,9 +1,9 @@
 
 const test = require('tape')
-const ipSet = require('../')
+const IPSet = require('../')
 
 test('ipSet.contains respects ipSet.add with only a start', t => {
-  const set = ipSet()
+  const set = new IPSet()
   const ip = '127.0.0.1'
 
   t.notOk(set.contains(ip))
@@ -13,7 +13,7 @@ test('ipSet.contains respects ipSet.add with only a start', t => {
 })
 
 test('ipSet.contains respects ipSet.add with a start and an end', t => {
-  const set = ipSet()
+  const set = new IPSet()
   const ips = ['192.168.1.0', '192.168.1.255']
 
   set.add(ips[0], ips[1])
@@ -26,7 +26,7 @@ test('ipSet.contains respects ipSet.add with a start and an end', t => {
 })
 
 test('ipSet.contains respects ipSet.add with a cidr', t => {
-  const set = ipSet()
+  const set = new IPSet()
   const cidrIp = '192.168.1.0/24'
 
   set.add(cidrIp)
@@ -40,7 +40,7 @@ test('ipSet.contains respects ipSet.add with a cidr', t => {
 })
 
 test('IPv6', t => {
-  const set = ipSet()
+  const set = new IPSet()
   const ip = '0:0:0:0:0:ffff:7f00:1' // 127.0.0.1
   const publicIP = '2607:f8b0:4004:811::200e' // google
   const ipv4 = '127.0.0.1'
@@ -62,7 +62,7 @@ test('IPv6', t => {
 
 // Fails on checking it doesn't contain a value outside the range.
 test.skip('IPv6 range', t => {
-  const set = ipSet()
+  const set = new IPSet()
   const start = '0:0:0:0:0:0:0:1'
   const mid1 = '0:0:0:0:0:0:0:9'
   const mid2 = '0:0:0:0:0:0:0:a'
