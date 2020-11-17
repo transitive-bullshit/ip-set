@@ -30,18 +30,5 @@
   },
   "scripts": {
     "test": "tape test/*.js"
-  },
-  "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/9..latest",
-      "chrome/25..latest",
-      "firefox/20..latest",
-      "safari/6..latest",
-      "opera/15.0..latest"
-    ]
-  },
-  "directories": {
-    "test": "test"
   }
 }
