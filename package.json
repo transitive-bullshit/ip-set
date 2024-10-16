@@ -1,7 +1,7 @@
 {
   "name": "ip-set",
   "description": "Efficient mutable set for IP addresses",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": "Travis Fischer <fisch0920@gmail.com>",
   "dependencies": {
     "ip": "^2.0.1"
