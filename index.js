@@ -1,4 +1,4 @@
-const ip = require('ip')
+const ip = require('neoip')
 
 class IPSetNode {
   constructor (start, end) {

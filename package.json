@@ -4,7 +4,7 @@
   "version": "2.2.0",
   "author": "Travis Fischer <fisch0920@gmail.com>",
   "dependencies": {
-    "ip": "^2.0.1"
+    "neoip": "^2.1.0"
   },
   "devDependencies": {
     "standard": "^16.0.2",
