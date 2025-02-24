@@ -1,4 +1,4 @@
-const ip = require('ip')
+const { Address4, Address6 } = require('ip-address')
 
 class IPSetNode {
   constructor (start, end) {
@@ -112,6 +112,15 @@ class IPSetNode {
   }
 }
 
+const parseAddress = (address) => {
+  if (address.includes(':')) {
+    return new Address6(address)
+  }
+  return new Address4(address)
+}
+
+const toLong = (ip) => ip.split('.').reduce((ipl, octet) => (ipl << 8) + parseInt(octet, 10), 0) >>> 0
+
 class IPSet {
   constructor (blocklist) {
     this.tree = null
@@ -131,14 +140,15 @@ class IPSet {
 
     const cidrStr = /\/\d{1,2}/
     if (typeof start === 'string' && cidrStr.test(start)) {
-      const ipSubnet = ip.cidrSubnet(start)
-      start = ipSubnet.networkAddress
-      end = ipSubnet.broadcastAddress
+      const address = parseAddress(start)
+      start = address.startAddress().address
+      end = address.endAddress().address
     }
-    if (typeof start !== 'number') start = ip.toLong(start)
+
+    if (typeof start !== 'number') start = toLong(start)
 
     if (!end) end = start
-    if (typeof end !== 'number') end = ip.toLong(end)
+    if (typeof end !== 'number') end = toLong(end)
 
     if (start < 0 || end > 4294967295 || end < start) throw new Error('Invalid block range')
 
@@ -148,7 +158,7 @@ class IPSet {
 
   contains (addr) {
     if (!this.tree) return false
-    if (typeof addr !== 'number') addr = ip.toLong(addr)
+    if (typeof addr !== 'number') addr = toLong(addr)
     return this.tree.contains(addr)
   }
 }
