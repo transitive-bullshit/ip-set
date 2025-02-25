@@ -11,7 +11,7 @@
 
 Efficient mutable set data structure optimized for use with IPv4 and IPv6 addresses. The primary use case is for working with potentially large IP blacklists.
 
-Works in the browser with [browserify](http://browserify.org/)! This module is used by [WebTorrent](http://webtorrent.io).
+This module is used by [WebTorrent](http://webtorrent.io).
 
 ## Install
 
