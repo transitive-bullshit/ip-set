@@ -17,7 +17,8 @@ npm install ip-set
 ```js
 const IPSet = require('ip-set')
 
-const ipSet = new IPSet(/* optionally pass an array of IP addresses to seed the set with */)
+const ipSet =
+  new IPSet(/* optionally pass an array of IP addresses to seed the set with */)
 ipSet.add(exampleBlockedIP1)
 ipSet.add(exampleBlockedIP2)
 let isBlocked = ipSet.contains(exampleBlockedIP2) // isBlocked will be true
@@ -26,13 +27,13 @@ let isBlocked = ipSet.contains(exampleBlockedIP2) // isBlocked will be true
 CIDR ip's are also supported
 
 ```js
-ipSet.add(`192.168.1.0/24`);
-let isBlockedInList = ipSet.contains('192.168.1.0');// isBlockedInList will be true
-isBlockedInList = ipSet.contains('192.168.1.255');// isBlockedInList will be true
+ipSet.add(`192.168.1.0/24`)
+let isBlockedInList = ipSet.contains('192.168.1.0') // isBlockedInList will be true
+isBlockedInList = ipSet.contains('192.168.1.255') // isBlockedInList will be true
 ```
 
-
 ## todo
+
 (prioritized highest to lowest)
 
 - [x] Port IPv4 implementation from `torrent-stream`

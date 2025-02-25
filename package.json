@@ -3,14 +3,26 @@
   "description": "Efficient mutable set for IP addresses",
   "version": "2.2.0",
   "author": "Travis Fischer <fisch0920@gmail.com>",
+  "homepage": "http://webtorrent.io",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fisch0920/ip-set.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "run-s test:*",
+    "test:format": "standard",
+    "test:unit": "tape test/*.js"
+  },
   "dependencies": {
     "ip-address": "^10.0.1"
   },
   "devDependencies": {
-    "standard": "^16.0.2",
+    "npm-run-all2": "^7.0.2",
+    "standard": "^17.1.2",
     "tape": "^5.0.1"
   },
-  "homepage": "http://webtorrent.io",
   "keywords": [
     "IP",
     "address",
@@ -19,17 +31,5 @@
     "set",
     "blacklist",
     "blocklist"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fisch0920/ip-set.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fisch0920/ip-set/issues"
-  },
-  "scripts": {
-    "test": "standard && tape test/*.js"
-  }
+  ]
 }
