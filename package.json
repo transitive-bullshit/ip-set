@@ -9,11 +9,17 @@
     "type": "git",
     "url": "git://github.com/fisch0920/ip-set.git"
   },
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "run-s test:*",
     "test:format": "standard",
-    "test:unit": "tape test/*.js"
+    "test:unit": "tape test/*.js",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "ip-address": "^10.0.1"
