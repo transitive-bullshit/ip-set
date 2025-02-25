@@ -1,7 +1,7 @@
 {
   "name": "ip-set",
   "description": "Efficient mutable set for IP addresses",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "author": "Travis Fischer <fisch0920@gmail.com>",
   "homepage": "http://webtorrent.io",
   "license": "MIT",
