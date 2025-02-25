@@ -1,9 +1,10 @@
 # ip-set
 
-<p align="center">
+<p>
   <a href="https://github.com/transitive-bullshit/ip-set/actions/workflows/main.yml"><img alt="Build Status" src="https://github.com/transitive-bullshit/ip-set/actions/workflows/main.yml/badge.svg" /></a>
   <a href="https://www.npmjs.com/package/ip-set"><img alt="NPM" src="https://img.shields.io/npm/v/ip-set.svg" /></a>
   <a href="https://github.com/transitive-bullshit/ip-set/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue" /></a>
+	<a href="https://prettier.io"><img alt="Prettier Code Formatting" src="https://img.shields.io/badge/code_style-prettier-brightgreen.svg" /></a>
 </p>
 
 ## Intro
