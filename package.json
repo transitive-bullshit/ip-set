@@ -18,8 +18,7 @@
   "scripts": {
     "test": "run-s test:*",
     "test:format": "standard",
-    "test:unit": "tape test/*.js",
-    "preinstall": "npx only-allow pnpm"
+    "test:unit": "tape test/*.js"
   },
   "dependencies": {
     "ip-address": "^10.0.1"
